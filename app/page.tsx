@@ -4,6 +4,7 @@ import { useState } from "react";
 import Hero from "@/components/Hero";
 import ZoomTransition from "@/components/ZoomTransition";
 import AppointmentModal from "@/components/AppointmentModal";
+import Treatments from "@/components/Treatments";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -69,6 +70,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Treatments />
+
       {/* Testimonials Section: The Industrial Voice */}
       <section className="bg-primary py-24 border-y border-white/5 relative overflow-hidden">
         {/* Background Accent Lines */}
