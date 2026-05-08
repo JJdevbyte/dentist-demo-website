@@ -20,50 +20,59 @@ export default function Home() {
       />
       
       {/* Revealed Section: Specialties */}
-      <section className="min-h-screen flex items-center justify-center bg-white py-24">
+      <section className="min-h-screen flex items-center justify-center bg-white py-32">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
-            <div className="max-w-2xl">
-              <span className="text-accent font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Our Expertise</span>
-              <h2 className="font-serif text-5xl md:text-7xl text-primary leading-tight">
-                Architecting the <br />
-                <span className="italic text-secondary">Perfect Smile</span>
+          <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-12">
+            <div className="max-w-4xl">
+              <span className="text-accent font-black tracking-[0.3em] uppercase text-sm mb-6 block">Our Expertise</span>
+              <h2 className="font-serif text-5xl md:text-7xl text-primary leading-[1.1] font-bold max-w-2xl">
+                Architecting the <span className="italic text-secondary font-black">Perfect Smile</span>
               </h2>
             </div>
-            <p className="font-sans text-secondary max-w-sm mb-2">
+            <p className="font-sans text-secondary text-xl max-w-sm mb-4 leading-relaxed font-medium">
               Combining mechanical precision with biological harmony to deliver results that are as durable as they are beautiful.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-neutral/20 border border-neutral/20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               { 
                 title: "Diagnostic Imaging", 
                 desc: "High-frequency 3D scanning for absolute structural clarity.",
-                tag: "Digital"
+                tag: "Digital",
+                img: "/diagnostic_imaging.png"
               },
               { 
                 title: "Restorative Art", 
                 desc: "Hand-finished porcelain work that mimics natural light diffusion.",
-                tag: "Aesthetic"
+                tag: "Aesthetic",
+                img: "/restorative_art.png"
               },
               { 
                 title: "Neural Comfort", 
                 desc: "Proprioceptive-aware techniques for pain-free surgical precision.",
-                tag: "Surgical"
+                tag: "Surgical",
+                img: "/neural_comfort.png"
               }
             ].map((item, i) => (
-              <div key={i} className="group p-12 bg-white hover:bg-primary transition-all duration-500 relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                  <span className="text-8xl font-serif font-black text-primary group-hover:text-white">0{i+1}</span>
+              <div key={i} className="group flex flex-col items-start bg-neutral/5 rounded-sm overflow-hidden hover:bg-white transition-all duration-700 hover:shadow-[0_40px_100px_rgba(0,0,0,0.1)] border border-transparent hover:border-neutral/20">
+                <div className="relative w-full h-80 overflow-hidden">
+                  <img 
+                    src={item.img} 
+                    alt={item.title} 
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110" 
+                  />
+                  <div className="absolute top-0 right-0 p-8">
+                    <span className="text-9xl font-serif font-black text-white/20 group-hover:text-primary/10 transition-colors">0{i+1}</span>
+                  </div>
                 </div>
-                <div className="relative z-10">
-                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent mb-6 block">{item.tag}</span>
-                  <h3 className="font-serif text-2xl font-medium mb-4 text-primary group-hover:text-white transition-colors">{item.title}</h3>
-                  <p className="font-sans text-secondary group-hover:text-neutral transition-colors leading-relaxed">
+                <div className="p-10 relative z-10 w-full">
+                  <span className="text-[12px] font-black tracking-[0.3em] uppercase text-accent mb-6 block">{item.tag}</span>
+                  <h3 className="font-serif text-3xl font-bold mb-6 text-primary">{item.title}</h3>
+                  <p className="font-sans text-secondary text-lg leading-relaxed font-medium">
                     {item.desc}
                   </p>
-                  <div className="mt-8 w-8 h-px bg-accent group-hover:w-full transition-all duration-700" />
+                  <div className="mt-10 w-12 h-1 bg-accent group-hover:w-full transition-all duration-1000" />
                 </div>
               </div>
             ))}

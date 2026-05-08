@@ -43,15 +43,14 @@ const Hero: React.FC<HeroProps> = ({ onBookClick }) => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-accent font-bold tracking-[0.2em] uppercase text-sm mb-4 block"
+              className="text-accent font-black tracking-[0.3em] uppercase text-sm mb-6 block"
             >
               Elite Dental Standards
             </motion.span>
-            <h1 className="font-serif text-6xl md:text-8xl text-white mb-8 leading-[1.1] tracking-tight">
-              The Future of <br />
-              <span className="text-neutral italic">Advanced</span> Oral Care
+            <h1 className="font-serif text-5xl md:text-7xl text-white mb-10 leading-[1.1] font-bold tracking-tighter max-w-2xl">
+              The Future of <span className="text-neutral italic font-black">Advanced</span> Oral Care
             </h1>
-            <p className="font-sans text-lg md:text-xl text-neutral mb-10 max-w-xl leading-relaxed">
+            <p className="font-sans text-xl md:text-2xl text-neutral mb-12 max-w-2xl leading-relaxed font-medium opacity-90">
               Where industrial precision meets luxury comfort. Experience world-class dental treatments powered by state-of-the-art diagnostic technology.
             </p>
             

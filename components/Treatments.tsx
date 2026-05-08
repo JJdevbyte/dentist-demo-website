@@ -10,6 +10,7 @@ const treatments = [
     title: "Structural Endodontics",
     short: "Advanced Root Canal Therapy",
     icon: <Microscope className="w-6 h-6" />,
+    img: "/root_canal.png",
     details: "Using high-frequency micro-scanning and ultrasonic instrumentation to preserve the natural structural integrity of the tooth root. Our precision protocols ensure a 98.7% success rate in primary endodontic procedures.",
     stats: [
         { label: "Precision", value: "0.1mm" },
@@ -21,6 +22,7 @@ const treatments = [
     title: "Force-Field Aligners",
     short: "Clear Orthodontic Solutions",
     icon: <Activity className="w-6 h-6" />,
+    img: "/clear_aligners.png",
     details: "Algorithmic tooth movement planning using digital twin technology. Our clear aligners apply constant, low-force pressure to optimize biological response and accelerate bone remodeling cycles.",
     stats: [
         { label: "Duration", value: "-40%" },
@@ -32,6 +34,7 @@ const treatments = [
     title: "Titanium Osseointegration",
     short: "Surgical Dental Implants",
     icon: <ShieldCheck className="w-6 h-6" />,
+    img: "/dental_implants.png",
     details: "Biological structural replacement using medical-grade titanium alloys. We focus on soft tissue harmony and immediate load protocols for results that are indistinguishable from natural dentition.",
     stats: [
         { label: "Durability", value: "Lifetime" },
@@ -43,6 +46,7 @@ const treatments = [
     title: "Photon Bio-Whitening",
     short: "Enamel Safe Brightening",
     icon: <Zap className="w-6 h-6" />,
+    img: "/dental_whitening.png",
     details: "Light-accelerated oxidation targeting deep structural staining without compromising enamel density. Our pH-balanced system prevents post-procedural sensitivity while achieving 8-12 shade improvements.",
     stats: [
         { label: "Sensitivity", value: "0%" },
@@ -57,34 +61,38 @@ export default function Treatments() {
   const selectedTreatment = treatments.find(t => t.id === selectedId);
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-32 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-20">
-          <span className="text-accent font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Clinical Catalog</span>
-          <h2 className="font-serif text-5xl md:text-7xl text-primary leading-tight max-w-3xl">
-            Precision <span className="italic text-secondary">Protocols</span> for Complex Challenges
+        <div className="mb-24">
+          <span className="text-accent font-black tracking-[0.3em] uppercase text-sm mb-6 block">Clinical Catalog</span>
+          <h2 className="font-serif text-5xl md:text-7xl text-primary leading-[1.1] font-bold max-w-4xl">
+            Precision <span className="italic text-secondary font-black">Protocols</span> for Complex Challenges
           </h2>
         </div>
 
         {/* Treatment Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {treatments.map((treatment) => (
             <motion.div
               layoutId={treatment.id}
               key={treatment.id}
               onClick={() => setSelectedId(treatment.id)}
-              className="group cursor-pointer bg-neutral/5 p-8 rounded-sm border border-neutral/10 hover:border-accent transition-colors relative h-[400px] flex flex-col justify-between"
+              className="group cursor-pointer bg-neutral/5 p-10 rounded-sm border border-neutral/10 hover:border-accent transition-all duration-500 relative h-[500px] flex flex-col justify-between overflow-hidden hover:shadow-[0_40px_100px_rgba(0,0,0,0.1)]"
             >
-              <div>
-                <div className="text-accent mb-6 group-hover:scale-110 transition-transform duration-500">
-                    {treatment.icon}
-                </div>
-                <h3 className="font-serif text-2xl text-primary mb-4">{treatment.title}</h3>
-                <p className="font-sans text-secondary text-sm leading-relaxed">{treatment.short}</p>
+              <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-20 transition-opacity duration-1000">
+                <img src={treatment.img} alt={treatment.title} className="w-full h-full object-cover grayscale" />
               </div>
               
-              <div className="flex items-center gap-2 text-accent font-bold tracking-widest text-[10px] uppercase">
-                Initialize <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+              <div className="relative z-10">
+                <div className="text-accent mb-8 group-hover:scale-110 transition-transform duration-700">
+                    {treatment.icon}
+                </div>
+                <h3 className="font-serif text-3xl text-primary mb-6 font-bold">{treatment.title}</h3>
+                <p className="font-sans text-secondary text-lg leading-relaxed font-medium">{treatment.short}</p>
+              </div>
+              
+              <div className="relative z-10 flex items-center gap-3 text-accent font-black tracking-[0.2em] text-[12px] uppercase">
+                Initialize <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
               </div>
             </motion.div>
           ))}
